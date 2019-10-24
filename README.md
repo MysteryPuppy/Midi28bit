@@ -10,6 +10,5 @@ To use source files:
 * `npm install`
 * `npm start`
 
-![Screenshot](https://github.com/MysteryPuppy/Midi28bit/blob/master/screenshot.png | width=100)
-
+<img src="https://github.com/MysteryPuppy/Midi28bit/blob/master/screenshot.png" width="100">
 **Note:** Application only for/tested on Mac OS
