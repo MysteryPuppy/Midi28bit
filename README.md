@@ -10,5 +10,5 @@ To use source files:
 * `npm install`
 * `npm start`
 
-<img src="https://github.com/MysteryPuppy/Midi28bit/blob/master/screenshot.png" width="200">
+<img src="https://github.com/MysteryPuppy/Midi28bit/blob/master/screenshot.png" width="400">
 **Note:** Application only for/tested on Mac OS
