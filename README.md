@@ -4,13 +4,15 @@ A simple electron application that takes MIDI files and converts them into chipt
 **Note:** Application only for/tested on Mac OS
 
 **Installation:**
-To run just the app, simply download the app.
-
 **To use source files:**
 * Clone repository to computer
 * `cd` into folder
 * `npm install`
 * `npm start`
+
+**To build app:**
+* In root directory `npm run package`
+
 
 <img src="https://github.com/MysteryPuppy/Midi28bit/blob/master/screenshot.png" width="400">
 
