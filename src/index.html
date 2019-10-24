@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Midi2Chip</title>
+  <script src="./synth.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <nav id="exit">X</nav>
+  <script>
+    document.getElementById("exit").addEventListener("click", myFunction);
+    function myFunction() {
+      window.close()
+    }
+  </script>
+  <h1> Midi to Chiptune Converter</h1>
+  <hr>
+  <p> Please choose a midi file to convert</p>
+  <input type="file" id="midi" accept="audio/midi">
+  <br>
+  <a id="wav">Download File</a>
+  <p id="playing"></p>
+  <script>
+    document.getElementById("playing").addEventListener("click", musicCont);
+    function musicCont() {
+      if (audio && !audio.paused) {
+        document.getElementById("playing").innerHTML = "Paused";
+        audio.pause();
+      }
+      else{
+        document.getElementById("playing").innerHTML = "Playing ♫♪♪";
+        audio.play();
+      }
+    }
+  </script>
+
+  <script>
+    var audio;
+    var input = document.getElementById('midi');
+    var anchor = document.getElementById('wav');
+
+    input.addEventListener('change', function change() {
+      // clean up previous song, if any
+      if (anchor.hasAttribute('href')) {
+        URL.revokeObjectURL(anchor.href);
+        anchor.removeAttribute('href');
+
+        if (audio && !audio.paused) {
+          audio.pause();
+        }
+      }
+
+      // check if file exists
+      if (input.files.length > 0) {
+        var reader = new FileReader();
+        var midName = input.files[0].name;
+        // replace file extension with .wav
+        var wavName = midName.replace(/\..+?$/, '.wav');
+
+        // set callback for array buffer
+        reader.addEventListener('load', function load(event) {
+          // convert midi arraybuffer to wav blob
+          var wav = synth.midiToWav(event.target.result).toBlob();
+          // create a temporary URL to the wav file
+          var src = URL.createObjectURL(wav);
+
+          audio = new Audio(src);
+          audio.play();
+          document.getElementById("playing").innerHTML = "Playing ♫♪♪";
+
+
+          anchor.setAttribute('href', src);
+        });
+
+        // read the file as an array buffer
+        reader.readAsArrayBuffer(input.files[0]);
+
+        // set the name of the wav file
+        anchor.setAttribute('download', wavName);
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+#wav:after {
+  content: " " attr(download);
+}
+
+#wav:not([href]) {
+  display: none;
+}
+
+
+nav {
+  font-size:12px;
+  margin: 0px;
+  font-family: 'IBM Plex Sans Condensed', 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+  width: 300;
+  height: 240;
+  background-color: black;
+  background-image: url("bg2.png");
+  background-repeat: no-repeat;
+}
+
+body {
+  margin: 10px;
+  width: 100%;
+  color: white;
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+}
+
+p {
+  color: #A4A4A4;
+}
+
+input:hover {
+  border:none;
+}
+
+hr {
+  margin-bottom: 20px;
+  width: 30%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+  margin-bottom:10px;
+}
+
+a {
+  color: white;
+}
